@@ -9,10 +9,20 @@ public class CaculadoraComScanner {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Que operaçao deseja realizar? 1- Soma 2- Subtração 3- Divisão 4- Multiplicação");
         int opcao = entrada.nextInt();
-        System.out.println("Digite um num1");
+        System.out.println("Digite um numero");
         Double numero1 = entrada.nextDouble();
-        System.out.println("Digite um num2");
+        System.out.println("Digite um numero maior que 0");
         Double numero2 = entrada.nextDouble();
+
+        while(numero1 < 0 || numero2 <= 0) {
+            System.out.println("Digite valores positivos");
+            System.out.println("Digite novamente um numero");
+            numero1 = entrada.nextDouble();
+            System.out.println("Digite novamente um numero");
+            numero2 = entrada.nextDouble();
+
+        }
+
         BiFunction<Double, Double, Double> corpoDoMetodoSoma = (num1, num2) -> num1+num2;
         BiFunction<Double, Double, Double> corpoDoMetodoSubtracao = (num1, num2) -> num1-num2;
         BiFunction<Double, Double, Double> corpoDoMetodoDivisao = (num1, num2) -> num1/num2;
